@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <conio.h>
-int a[3], n = sizeof(a) / sizeof(a[0]), count = 0;
+int a[3], n = 3, count = 0;
 
 void insert()
 {
     int key;
-    if (count == (n - 1))
+    if (count == n)
     {
         printf("Array is full\n");
         return;
@@ -26,12 +26,12 @@ void deletion()
     }
     printf("Enter a number\n");
     scanf("%d", &key);
-    for (i = 0; i <= count; i++)
+    for (i = 0; i < count; i++)
     {
         if (a[i] == key)
         {
             check = 1;
-            for (j = i; j < count; j++)
+            for (j = i; j < (count - 1); j++)
             {
                 a[j] = a[j + 1];
             }
@@ -55,7 +55,7 @@ void display()
         printf("Array is empty\n");
         return;
     }
-    for (i = 0; i <= count; i++)
+    for (i = 0; i < count; i++)
     {
         printf("%d ", a[i]);
     }
