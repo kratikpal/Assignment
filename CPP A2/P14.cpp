@@ -1,39 +1,40 @@
 #include <iostream>
 using namespace std;
 
-class Num
+class A
 {
 public:
-    int n1, n2;
+    int x;
 };
-
-class Sum : public Num
+class B : public A
 {
 public:
-    int sum()
+    B()
     {
-        return n1 + n2;
+        x = 10;
     }
 };
-
-class Multiplication : public Num
+class C
 {
 public:
-    int multi()
+    int y;
+    C()
     {
-        return n1 * n2;
+        y = 4;
+    }
+};
+class D : public B, public C
+{
+public:
+    void sum()
+    {
+        cout << "Sum= " << x + y;
     }
 };
 
 int main()
 {
-    Sum obj1;
-    Multiplication obj2;
-    cout << "Enter two numbers" << endl;
-    cin >> obj1.n1 >> obj1.n2;
-    obj2.n1 = obj1.n1;
-    obj2.n2 = obj1.n2;
-    cout << "Sum is " << obj1.sum() << endl;
-    cout << "Multiplication is " << obj2.multi() << endl;
+    D obj1;
+    obj1.sum();
     return 0;
 }
