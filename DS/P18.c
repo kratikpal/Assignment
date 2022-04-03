@@ -43,7 +43,7 @@ int main()
     quickSort(arr, 0, size - 1);
     printf("\nAfter sorting array elements are - \n");
     for (i = 0; i < size; i++)
-        printf("%d\t", arr[i]);
+        printf("%d\t" a, arr[i]);
     getch();
 
     return 0;
