@@ -1,4 +1,4 @@
 print("Date")
-print(Sys.Date())
+print(Sys.date())
 print("Date and Time")
 print(Sys.time())
