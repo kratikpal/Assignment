@@ -1,0 +1,5 @@
+vec = c(2,4,1,5,3)
+print("Ascending")
+print(sort(vec))
+print("Descending")
+print(sort(vec,decreasing = T))

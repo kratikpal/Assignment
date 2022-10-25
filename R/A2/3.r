@@ -1,0 +1,5 @@
+vec = c(1,2,3,4,5)
+print("Minimum value")
+print(min(vec))
+print("Maximum value")
+print(max(vec))
