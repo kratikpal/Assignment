@@ -1,0 +1,6 @@
+list_1 <- list(c("Red","green"),matrix(c(1,2,3,4,5,6),nrow = 2),list("A","B"))
+names(list_1) = c("Color","Number","Alphabet")
+print("First element:")
+print(list_1[1])
+print("Second element:")
+print(list_1[2])

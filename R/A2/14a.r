@@ -1,0 +1,7 @@
+m = matrix(c(1:12),nrow = 3)
+print("Element at 3rd coloum and 2nd row")
+print(m[2,3])
+print("3rd row")
+print(m[3,])
+print("4th column")
+print(m[,4])

@@ -1,0 +1,6 @@
+m = matrix(sample(1:30,9),nrow = 3)
+print(m)
+print("Max element index")
+print(which(m == max(m),arr.ind = T))
+print("Min element index")
+print(which(m == min(m),arr.ind = T))
