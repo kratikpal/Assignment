@@ -1,0 +1,8 @@
+s = c("Science","English","Maths")
+m = c(80,60,90)
+v = c(10,20,23,23,43,32,23,54,43,23,54,24,12,43,44,53)
+barplot(m,names.arg = s,ylab = "Marks",xlab = "Subject",ylim = c(0,100))
+pie(m,s)
+plot(m,type = "o")
+hist(v)
+plot(v)
