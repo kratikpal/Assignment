@@ -1,12 +1,8 @@
-data_1 = data.frame(
-  name = c("Ram","Raj","Roy","Aman","Sita"),
-  age = c(20,25,15,10,30)
-)
+data("airquality")
 
-num = round(nrow(data_1)*0.80)
-
+num = round((nrow(airquality)*0.80))
 print("80% data")
-print(data_1[1:num,])
+print(airquality[1:num,])
 
 print("20% data")
-print(data_1[(num+1),])
+print(airquality[(num+1):nrow(airquality),])

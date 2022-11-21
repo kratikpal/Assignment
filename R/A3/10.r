@@ -1,13 +1,6 @@
 data("airquality")
-print("NULL values in ozone")
-print(which(is.na(airquality$Ozone)))
-print("NULL values in Solar.R")
-print(which(is.na(airquality$Solar.R)))
-print("NULL values in Wind")
-print(which(is.na(airquality$Wind)))
-print("NULL values in Temp")
-print(which(is.na(airquality$Temp)))
-print("NULL values in Month")
-print(which(is.na(airquality$Month)))
-print("NULL values in Day")
-print(which(is.na(airquality$Day)))
+for (i in 1:ncol(airquality)) {
+  print(paste("NULL values in row ",i))
+  print(which(is.na(airquality[,i])))
+}
+
