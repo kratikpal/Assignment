@@ -32,7 +32,10 @@ training_d = d[1:num,]
 testing_d = d[(num+1):nrow(d),]
 
 # Linear Regression
-plot(Rating ~ Number.of.ratings, data = d) #Checking linearity of data
 d_lm = lm(Rating ~ Number.of.ratings, data = d)
-summary(d_lm)
-plot(d_lm)
+plot(Rating ~ Number.of.ratings, data = d)
+lines(lowess(d$Number.of.ratings,d$Rating),col = "blue")
+
+# predict
+test = d[1,]
+predict(d_lm,test)
