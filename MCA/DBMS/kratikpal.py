@@ -29,51 +29,75 @@ mydb = mysql.connector.connect(
 
 cursor = mydb.cursor()
 
-name = []
-types = []
-noOfAttri = int(input("Enter the number of attributes: "))
-
-for i in range(noOfAttri):
-    print("Enter the name of attribute", i + 1)
-    name.append(input())
-    print("Select the type of attribute", i + 1)
-    print("1. Numeric")
-    print("2. Varchar")
-    print("3. Date")
-    match int(input()):
-        case 1:
-            types.append("NUMERIC")
-        case 2:
-            types.append("VARCHAR(20)")
-        case 3:
-            types.append("DATE")
-        case _:
-            types.append("VARCHAR(20)")
+#  function to create table
+def create_table():
+    sql = "CREATE TABLE car (CarId NUMERIC, Brand VARCHAR(20), Model VARCHAR(20), Owner VARCHAR(20))"
+    try:
+        cursor.execute(sql)
+        print("Table created successfully")
+    except:
+        print("Table already exists")
 
 
-# creating table from the user input
-sql = "CREATE TABLE " + name[0] + " ("
-for i in range(noOfAttri):
-    sql += name[i] + " " + types[i] + ","
-sql = sql[:-1]
-sql += ");"
+# funcrion to delete table
+def delete_table():
+    sql = "DROP TABLE car"
+    try:
+        cursor.execute(sql)
+        print("Table deleted successfully")
+    except:
+        print("Table doesn't exist")
 
-cursor.execute(sql)
 
-noOfTuples = int(input("Enter the number of tuples: "))
+# function to insert values
+def insert(carId: int, carName: str, brand: str, owner: str):
+    sql = "INSERT INTO car VALUES (%s, %s, %s, %s)"
+    val = (carId, carName, brand, owner)
+    cursor.execute(sql, val)
+    mydb.commit()
+    print(cursor.rowcount, "record inserted.")
 
-# inserting values into the table from the user input
-for i in range(noOfTuples):
-    print("Enter the values of tuple", i + 1)
-    sql = "INSERT INTO " + name[0] + " VALUES ("
-    for j in range(noOfAttri):
-        print("Enter the value of", name[j])
-        if types[j] == "NUMERIC":
-            sql += input() + ","
-        else:
-            sql += "'" + input() + "',"
-    sql = sql[:-1]
-    sql += ");"
+
+# function to delete values
+def delete(carId: int):
+    sql = "DELETE FROM car WHERE CarId = %s"
+    val = (carId,)
+    cursor.execute(sql, val)
+    mydb.commit()
+    print(cursor.rowcount, "record deleted.")
+
+
+# function to display values
+def display():
+    sql = "SELECT * FROM car"
     cursor.execute(sql)
+    result = cursor.fetchall()
+    for x in result:
+        print(x)
 
-mydb.commit()
+# driver code
+while(True):
+    print("Enter 1 to create table")
+    print("Enter 2 to delete table")
+    print("Enter 3 to insert values")
+    print("Enter 4 to delete values")
+    print("Enter 5 to display values")
+    print("Enter 6 to exit")
+    choice = int(input())
+    if choice == 1:
+        create_table()
+    elif choice == 2:
+        delete_table()
+    elif choice == 3:
+        carId = int(input("Enter CarId: "))
+        brand = input("Enter Brand: ")
+        carName = input("Enter Model: ")
+        owner = input("Enter Owner: ")
+        insert(carId, carName, brand, owner)
+    elif choice == 4:
+        carId = int(input("Enter CarId: "))
+        delete(carId)
+    elif choice == 5:
+        display()
+    elif choice == 6:
+        break
