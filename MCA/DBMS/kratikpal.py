@@ -1,7 +1,7 @@
-import mysql.connector
+import pymysql
 
 # connecting to the database
-mydb = mysql.connector.connect(
+mydb = pymysql.connect(
     host="localhost",
     user="root",
     password="",
@@ -18,9 +18,8 @@ if not result:
     cursor.execute(f"CREATE DATABASE {db_name}")
     print(f"Database '{db_name}' created successfully.")
 
-
 # Connect to the database
-mydb = mysql.connector.connect(
+mydb = pymysql.connect(
     host="localhost",
     user="root",
     password="",
@@ -29,7 +28,7 @@ mydb = mysql.connector.connect(
 
 cursor = mydb.cursor()
 
-#  function to create table
+# function to create table
 def create_table():
     sql = "CREATE TABLE car (CarId NUMERIC, Brand VARCHAR(20), Model VARCHAR(20), Owner VARCHAR(20))"
     try:
@@ -38,8 +37,7 @@ def create_table():
     except:
         print("Table already exists")
 
-
-# funcrion to delete table
+# function to delete table
 def delete_table():
     sql = "DROP TABLE car"
     try:
@@ -47,7 +45,6 @@ def delete_table():
         print("Table deleted successfully")
     except:
         print("Table doesn't exist")
-
 
 # function to insert values
 def insert(carId: int, carName: str, brand: str, owner: str):
@@ -57,7 +54,6 @@ def insert(carId: int, carName: str, brand: str, owner: str):
     mydb.commit()
     print(cursor.rowcount, "record inserted.")
 
-
 # function to delete values
 def delete(carId: int):
     sql = "DELETE FROM car WHERE CarId = %s"
@@ -65,7 +61,6 @@ def delete(carId: int):
     cursor.execute(sql, val)
     mydb.commit()
     print(cursor.rowcount, "record deleted.")
-
 
 # function to display values
 def display():
@@ -76,7 +71,7 @@ def display():
         print(x)
 
 # driver code
-while(True):
+while True:
     print("Enter 1 to create table")
     print("Enter 2 to delete table")
     print("Enter 3 to insert values")
