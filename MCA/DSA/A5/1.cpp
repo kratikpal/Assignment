@@ -63,6 +63,7 @@ void insertAfterK(Node *head, int k, int d)
     }
     if (temp == NULL)
     {
+        cout << "k is greater than length of linked list" << endl;
         return;
     }
     n->next = temp->next;
@@ -83,15 +84,92 @@ void traverseForward(Node *head)
     cout << endl;
 }
 
+// function to traverse backward
+void traverseBackward(Node *head)
+{
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->prev;
+    }
+    cout << endl;
+}
+
+// function to delete a node at head
+void deleteAtHead(Node *&head)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    Node *temp = head;
+    head = head->next;
+    head->prev = NULL;
+    delete temp;
+}
+
+// function to delete a node at tail
+void deleteAtTail(Node *&head)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->prev->next = NULL;
+    delete temp;
+}
+
+// function to delete a node with a key value
+void deleteNode(Node *&head, int key)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (head->next == NULL && head->data == key)
+    {
+        deleteAtHead(head);
+        return;
+    }
+    Node *temp = head;
+    while (temp->next->data != key)
+    {
+        temp = temp->next;
+    }
+    temp->next = temp->next->next;
+    delete temp->next->prev;
+    temp->next->prev = temp;
+}
+
 int main()
 {
     Node *head = NULL;
     insertAtTail(head, 1);
     insertAtTail(head, 2);
-    insertAtTail(head, 3);  
+    insertAtTail(head, 3);
     insertAtTail(head, 4);
+    insertAtHead(head, 0);
     insertAtTail(head, 5);
     insertAtTail(head, 6);
+    insertAfterK(head, 2, 10);
     traverseForward(head);
+    deleteAtHead(head);
+    deleteAtTail(head);
+    deleteNode(head, 10);
+    traverseForward(head);
+    traverseBackward(head);
     return 0;
 }
