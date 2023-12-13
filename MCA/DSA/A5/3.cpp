@@ -85,6 +85,7 @@ void insertAtHead(Node *&head, int d)
     head->prev->next = temp;
     head->prev = temp;
     head = temp;
+    cout << d << " inserted at head" << endl;
 }
 
 // function to delete at tail
@@ -108,6 +109,7 @@ void deleteAtTail(Node *&head)
     delete temp->next;
     temp->next = head;
     head->prev = temp;
+    cout << "Node deleted from tail" << endl;
 }
 
 int main()
@@ -118,7 +120,7 @@ int main()
     insertAtHead(head, 3);
     insertAtHead(head, 4);
     insertAtHead(head, 5);
-    cout << countNodes(head) << endl;
+    cout << "No. of nodes = " << countNodes(head) << endl;
     traverse(head);
     deleteAtTail(head);
     traverse(head);

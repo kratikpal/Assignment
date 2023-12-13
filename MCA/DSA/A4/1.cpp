@@ -36,6 +36,7 @@ void insertAtHead(Node *&head, int d)
     }
     temp->next = head;
     head = temp;
+    cout << d << " Inserted at head" << endl;
 }
 
 // function to insert node at the tail
@@ -53,6 +54,7 @@ void insertAtTail(Node *&head, int d)
         curr = curr->next;
     }
     curr->next = temp;
+    cout << d << " Inserted at tail" << endl;
 }
 
 // function to insert node int he middle or given position
@@ -82,6 +84,7 @@ void insertAtPosition(Node *&head, int d, int pos)
     }
     temp->next = curr->next;
     curr->next = temp;
+    cout << d << " Inserted at position " << pos << endl;
 }
 
 // function to delete node at the head
@@ -95,6 +98,7 @@ void deleteAtHead(Node *&head)
     Node *temp = head;
     head = head->next;
     delete temp;
+    cout << "Deleted from head" << endl;
 }
 
 // function to delete node at the tail
@@ -118,6 +122,7 @@ void deleteAtTail(Node *&head)
     Node *temp = curr->next;
     curr->next = NULL;
     delete temp;
+    cout << "Deleted from tail" << endl;
 }
 
 // function to delete node at the given position
@@ -146,6 +151,7 @@ void deleteAtPosition(Node *&head, int pos)
     Node *temp = curr->next;
     curr->next = curr->next->next;
     delete temp;
+    cout << "Deleted from position " << pos << endl;
 }
 
 // function to sort the linked list
@@ -170,6 +176,7 @@ void sortList(Node *&head)
         head = temp;
         counterNode = counterNode->next;
     }
+    cout << "List is sorted" << endl;
 }
 
 // function to reverse the linked list
@@ -190,6 +197,7 @@ Node *rev(Node *head)
         prevPtr = curPtr;
         curPtr = nextPtr;
     }
+    cout << "List is reversed" << endl;
     return prevPtr;
 }
 
@@ -203,6 +211,12 @@ int main()
     insertAtPosition(head, 5, 3);
     traverse(head);
     sortList(head);
+    traverse(head);
+    head = rev(head);
+    traverse(head);
+    deleteAtHead(head);
+    deleteAtTail(head);
+    deleteAtPosition(head, 3);
     traverse(head);
     return 0;
 }

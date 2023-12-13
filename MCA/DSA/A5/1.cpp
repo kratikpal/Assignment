@@ -27,6 +27,7 @@ void insertAtHead(Node *&head, int d)
     n->next = head;
     head->prev = n;
     head = n;
+    cout << d << " inserted at head" << endl;
 }
 
 // function to insert at tail
@@ -45,6 +46,7 @@ void insertAtTail(Node *&head, int d)
     }
     temp->next = n;
     n->prev = temp;
+    cout << d << " inserted at tail" << endl;
 }
 
 // function to insert ater k position
@@ -55,6 +57,7 @@ void insertAfterK(Node *head, int k, int d)
         insertAtHead(head, d);
         return;
     }
+    int te = k;
     Node *n = new Node(d);
     Node *temp = head;
     while (k-- && temp != NULL)
@@ -70,11 +73,13 @@ void insertAfterK(Node *head, int k, int d)
     temp->next->prev = n;
     temp->next = n;
     n->prev = temp;
+    cout << d << " inserted after " << te << " position" << endl;
 }
 
 // function to traverse forward
 void traverseForward(Node *head)
 {
+    cout << "Traversing forward: ";
     Node *temp = head;
     while (temp != NULL)
     {
@@ -87,6 +92,7 @@ void traverseForward(Node *head)
 // function to traverse backward
 void traverseBackward(Node *head)
 {
+    cout << "Traversing backward: ";
     Node *temp = head;
     while (temp->next != NULL)
     {
@@ -112,6 +118,7 @@ void deleteAtHead(Node *&head)
     head = head->next;
     head->prev = NULL;
     delete temp;
+    cout << "Node deleted from head" << endl;
 }
 
 // function to delete a node at tail
@@ -129,6 +136,7 @@ void deleteAtTail(Node *&head)
     }
     temp->prev->next = NULL;
     delete temp;
+    cout << "Node deleted from tail" << endl;
 }
 
 // function to delete a node with a key value
@@ -152,6 +160,7 @@ void deleteNode(Node *&head, int key)
     temp->next = temp->next->next;
     delete temp->next->prev;
     temp->next->prev = temp;
+    cout << "Node deleted with key value " << key << endl;
 }
 
 int main()
