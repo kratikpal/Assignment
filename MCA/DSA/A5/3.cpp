@@ -49,6 +49,7 @@ int countNodes(Node *head)
 // function to traverse each node
 void traverse(Node *head)
 {
+    cout << "List is: ";
     if (isEmpty(head))
     {
         cout << "List is empty" << endl;
@@ -77,6 +78,7 @@ void insertAtHead(Node *&head, int d)
         temp->next = temp;
         temp->prev = temp;
         head = temp;
+        cout << d << " inserted at head" << endl;
         return;
     }
     Node *temp = new Node(d);

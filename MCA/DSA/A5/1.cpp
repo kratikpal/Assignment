@@ -168,8 +168,6 @@ int main()
     Node *head = NULL;
     insertAtTail(head, 1);
     insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
     insertAtHead(head, 0);
     insertAtTail(head, 5);
     insertAtTail(head, 6);

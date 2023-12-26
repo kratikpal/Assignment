@@ -32,6 +32,7 @@ void insertAtHead(Node *&head, int d)
     if (head == NULL)
     {
         head = temp;
+        cout << d << " Inserted at head" << endl;
         return;
     }
     temp->next = head;
