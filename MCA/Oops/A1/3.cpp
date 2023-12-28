@@ -7,12 +7,6 @@ class Manager
 public:
     string name;
     int id;
-
-    // Manager(string n, int i)
-    // {
-    //     name = n;
-    //     id = i;
-    // }
     void display()
     {
         cout << name << " " << id << endl;

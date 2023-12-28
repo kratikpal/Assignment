@@ -47,9 +47,9 @@ int main()
     cin >> a >> b;
     Class_1 obj1(a);
     Class_2 obj2(b);
-    swapData(obj1, obj2);
     cout << "Before swapping: "
          << "a = " << a << " and "
          << "b = " << b << endl;
+    swapData(obj1, obj2);
     return 0;
 }

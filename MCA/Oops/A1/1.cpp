@@ -15,9 +15,10 @@ public:
         age = a;
         count++;
     }
-    static void show()
+    // function to show count of objects
+    static void showCount()
     {
-        cout << count << endl;
+        cout << "Number of objects:" << count << endl;
     }
 };
 int P::count = 0;
@@ -26,6 +27,6 @@ int main()
 {
     P p1 = P("shubham", 3);
     P p2 = P("shubham", 3);
-    p2.show();
+    p2.showCount();
     return 0;
 }
