@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Authentication</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Welcome</h2>
+
+      <form action="login.php" method="post">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+
+      <div class="option">
+        <h3>OR</h3>
+        <button onclick="window.location.href='register.html'">
+          Click here to register
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
