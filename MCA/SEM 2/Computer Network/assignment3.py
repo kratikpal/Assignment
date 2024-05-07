@@ -1,8 +1,8 @@
 from scapy.all import IP, ICMP, send, sniff
 
 # Sender IP and Receiver IP
-sender_ip = "192.168.1.100"
-receiver_ip = "192.168.1.101"
+sender_ip = "10.25.5.164"
+receiver_ip = "10.25.5.168"
 
 # Define a custom packet with IP layer
 pkt = IP(src=sender_ip, dst=receiver_ip, ttl=128) / ICMP() / "Hello"
