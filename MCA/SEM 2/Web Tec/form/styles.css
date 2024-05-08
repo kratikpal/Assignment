@@ -60,6 +60,10 @@ input[type="radio"]:focus {
     margin-right: 10px;
 }
 
+.error {
+    color: red;
+}
+
 button {
     width: 100%;
     padding: 10px;
@@ -74,8 +78,6 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-
-/* Add this CSS to your existing styles.css */
 
 input[type="date"] {
     width: calc(100% - 22px);
@@ -98,4 +100,46 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"]:focus {
     outline: none;
     border-color: #007bff;
+}
+
+
+/* CSS for centering the animation and success message */
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto; /* Center the loader */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.success {
+    margin-top: 20px;
+}
+
+.tick {
+    width: 48px;
+    height: 48px;
+}
+
+.success p {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
 }
