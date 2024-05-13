@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +9,7 @@
   <body>
     <div class="container">
       <h2>User Registration</h2>
-      <form action="register.php" method="post">
+      <form action="register" method="post">
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
